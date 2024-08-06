@@ -6,14 +6,23 @@ class Image < ApplicationRecord
   def time_since_upload
     elapsed_time = Time.now - self.uploaded_at
 
-    if elapsed_time < 60
+    case elapsed_time
+    when 0..59
       "#{elapsed_time.to_i} seconds ago"
-    elsif elapsed_time < 3600
+    when 60..3599
       "#{(elapsed_time / 60).to_i} minutes ago"
-    elsif elapsed_time >= 3600 && elapsed_time < 7200
-      "#{(elapsed_time / 3600).to_i} hour ago"
-    else
+    when 3600..7199
+      "1 hour ago"
+    when 7200..86399
       "#{(elapsed_time / 3600).to_i} hours ago"
+    when 86400..172799
+      "1 day ago"
+    when 172800..31535999
+      "#{(elapsed_time / 86400).to_i} days ago"
+    when 31536000..63071999
+      "1 year ago"
+    else
+      "#{(elapsed_time / 31536000).to_i} years ago"
     end
   end
 end
