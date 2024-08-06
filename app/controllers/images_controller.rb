@@ -13,11 +13,12 @@ class ImagesController < ApplicationController
 
   def create
     @image = Image.new(image_params)
-    @image.uploaded_att = Time.now
+    @image.uploaded_at = Time.now
 
     if @image.save
       redirect_to @image, notice: 'Image uploaded successfully.'
     else
+      flash[:alert] = @image.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -25,6 +26,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:title, :description, :image_file)
+    params.require(:image).permit(:title, :description, :img_file)
   end
 end
