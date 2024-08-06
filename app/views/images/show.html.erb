@@ -1,1 +1,9 @@
+<h1><%= @image.title %></h1>
+
+<p><%= image_tag @image.img_file.url %></p>
+
+
+<p><%= @image.description %></p>
+<p>Uploaded at: <%= @image.uploaded_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+<%= link_to 'Back to Gallery', images_path, class: 'btn btn-secondary' %>
 
