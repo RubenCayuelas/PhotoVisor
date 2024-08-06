@@ -14,9 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/public/tmp/*
 !/log/.keep
 !/tmp/.keep
+/public/tmp/*
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -31,6 +31,8 @@
 !/tmp/storage/.keep
 
 /public/assets
+
+/public/uploads/*
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
