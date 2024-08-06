@@ -12,6 +12,12 @@
   </head>
 
   <body>
+    <header class="d-flex justify-content-between align-items-center my-2">
+      <h1 class="ms-3">Photo Visor</h1>
+      <div class="d-flex justify-content-end me-3">
+        <%= link_to 'Upload New Image', new_image_path, class: 'btn btn-outline-secondary btn-sm' %>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

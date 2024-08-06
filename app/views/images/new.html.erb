@@ -1,3 +1,4 @@
+<main class="py-5 bg-body-tertiary">
 <h1>Upload New Image</h1>
 <%= form_with model: @image, local: true, html: { multipart: true } do |form| %>
   <div class="form-group">
@@ -18,3 +19,4 @@
   <%= form.submit 'Upload', class: 'btn btn-primary' %>
 <% end %>
 <%= link_to 'Back to Gallery', images_path, class: 'btn btn-secondary' %>
+</main>
