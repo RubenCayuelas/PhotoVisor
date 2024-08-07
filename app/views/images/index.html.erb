@@ -1,0 +1,28 @@
+
+<main class="py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 justify-content-center align-items-stretch">
+      <% @images.each do |image| %>
+        <div class="col d-flex">
+          <div class="card shadow-sm flex-fill">
+            <%= image_tag(image.img_file.url, class: 'card-img-top cover', height: '300', width: '300') if image.img_file? %>
+
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title"><%= image.title %></h5>
+              <p class="card-text"><%= truncate(image.description, length: 90) %></p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= link_to 'View', image_path(image), class: 'btn btn-sm btn-outline-secondary' %>
+                  <%= link_to 'Delete', image_path(image), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger' %>
+                </div>
+                <small class="text-body-secondary"><%= image.time_since_upload %></small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>
+
